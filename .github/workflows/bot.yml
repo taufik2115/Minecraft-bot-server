@@ -1,0 +1,25 @@
+name: Run Bot
+
+on:
+  workflow_dispatch:   # Bisa dijalankan manual
+  schedule:
+    - cron: "0 */6 * * *"   # Restart tiap 6 jam
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the bot
+        run: node bot.js
