@@ -1,18 +1,19 @@
 const { Client } = require("discord.js");
 const mc = require("bedrock-protocol");
+const fetch = require("node-fetch"); // untuk ping server
 
+// Discord bot setup
 const client = new Client({ intents: ["Guilds", "GuildMessages", "MessageContent"] });
 
-// Login Discord Bot
 client.on("ready", () => {
   console.log(`✅ Discord bot login sebagai ${client.user.tag}`);
 });
 
-// Contoh bot Minecraft auto-join
+// Minecraft bot setup
 const mcBot = mc.createClient({
-  host: "your-server-ip", // ganti ip server kamu
-  port: 19132,            // port default Bedrock
-  username: "BotName",    // nama bot Minecraft
+  host: "Indomietelor.enderman.cloud", // ganti dengan alamat server
+  port: 34357,                          // default Bedrock
+  username: "Abdull Cilok",          // ganti sesuai nama bot
   offline: true
 });
 
@@ -20,4 +21,12 @@ mcBot.on("join", () => {
   console.log("✅ Bot Minecraft berhasil join ke server!");
 });
 
-client.login(process.env.DISCORD_TOKEN); // token disimpan di GitHub Secrets
+// Ping server supaya tetap hidup (opsional tapi direkomendasikan)
+setInterval(() => {
+  fetch('https://alamat-server-free-mc-server-anda.com') // ganti sesuai URL server
+    .then(() => console.log('Server pinged'))
+    .catch(err => console.log('Ping error:', err));
+}, 5 * 60 * 1000); // tiap 5 menit
+
+// Login Discord
+client.login(process.env.DISCORD_TOKEN);
