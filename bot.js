@@ -14,7 +14,7 @@ const mcBot = mc.createClient({
   port: 34357,                           // port server
   username: process.env.MC_EMAIL,        // ambil dari GitHub Secrets
   password: process.env.MC_PASSWORD,     // ambil dari GitHub Secrets
-  version: "1.21.101",
+  version: "1.21.100",
   authTitle: "00000000402b5328",         // Xbox Live App ID
   flow: "msal"                           // WAJIB untuk Microsoft login
 });
