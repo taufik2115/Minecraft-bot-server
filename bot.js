@@ -18,7 +18,7 @@ client.on("ready", () => {
 const mcBot = mc.createClient({
   host: "Indomietelor.enderman.cloud", // ganti dengan alamat server
   port: 34357,                         // port Bedrock server
-  username: "Abdull Cilok",            // nama bot Minecraft
+  username: "Abdull Bridge",            // nama bot Minecraft
   offline: true
 });
 
